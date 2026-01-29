@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
+    const conn = await mongoose.connect('mongodb+srv://admin:admin@cluster0.cgdgk3r.mongodb.net/Data?appName=Cluster0');
     
     // Check which database we actually entered
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
