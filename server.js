@@ -1,16 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import connectDB from "./src/config/db.js";
 import app from "./src/app.js";
+import connectDB from "./src/config/db.js";
 
-// Connect to MongoDB
+const PORT = process.env.PORT || 5000;
+
 connectDB();
 
-// Export app as serverless function for Vercel
-export default async function handler(req, res) {
-  // Ensure DB is connected before handling requests
-  await connectDB();
-
-  return app(req, res);
-}
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+});
